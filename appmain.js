@@ -15,7 +15,7 @@ app.engine('handlebars', engine({
 app.set('view engine', 'handlebars')
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
-
+//teste
 app.get("/pagamento", function(req, res){
 	Pagamento.findAll({order: [['id', 'Asc']]}).then(function(pagamentos){
 		res.render('pagamento', {pagamentos: pagamentos});
