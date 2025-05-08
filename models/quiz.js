@@ -1,14 +1,28 @@
 const perguntas = [
-    {
+    { //Pergunta 1
+        pergunta: "O céu é Azul.",
+        respostas:["Verdadeiro", "Falso"],
+        correta:"Verdadeiro"
 
-    }
+    },
+
+    { //Pergunta 2
+        pergunta: "O céu é Azul.",
+        respostas:["Verdadeiro", "Falso"],
+        correta:"Verdadeiro"
+
+    },
 ];
 
-let perguntaAtual =0;
-let pontuacao = 0;
+let indicePerguntas =0;
+let pontuacaoFinal = 0;
 
 const pergunta = document.getElementById("pergunta");
-const resposta = document.querySelectorAll(".botao-resposta");
+const botoesResposta = document.querySelectorAll(".botao-resposta");
+const botaoProximo = document.getElementById("botao-proximo");
+const containerResultdo = document.getElementById("resultado");
+const pontuacao = document.getElementById("pontuacao")
+
 
 function iniciarQuiz(){
     perguntaAtual = 0;
@@ -39,7 +53,7 @@ function selecionarResposta(e){
     const respostaCorreta = botaoSelecionado.innerTect === perguntas[indicePerguntas].correta;
     if (respostaCorreta){
         botaoSelecionado.classList.add("correto");
-        pontuacao ++
+        pontuacaoFinal ++
     } else{
         botaoSelecionado.classList.add("incorreto");
 
@@ -51,7 +65,7 @@ function selecionarResposta(e){
 
 function exibirResultado(){
     containerResultado.style.display="block";
-    pontuacao.innerText='${potuacao} de ${perguntas.length}';
+    pontuacao.innerText='${potuacaoFinal} de ${perguntas.length}';
 }
 
 botaoProximo.addEventListener("click", ()=>{
