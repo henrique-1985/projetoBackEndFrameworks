@@ -16,6 +16,11 @@ app.set('view engine', 'handlebars')
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 //teste
+
+app.get("/quiz", function(req,res){
+	res.sendFile(__dirname+"/src/quiz.html");
+});
+
 app.get("/pagamento", function(req, res){
 	Pagamento.findAll({order: [['id', 'Asc']]}).then(function(pagamentos){
 		res.render('pagamento', {pagamentos: pagamentos});
