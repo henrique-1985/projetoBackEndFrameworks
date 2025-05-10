@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const path = require('path');
 const {engine} = require ("express-handlebars");
 const bodyParser = require("body-parser");
 const moment = require('moment')
@@ -15,10 +16,12 @@ app.engine('handlebars', engine({
 app.set('view engine', 'handlebars')
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
+app.use(express.static(path.join(__dirname,"public")));
 //teste
 
 app.get("/quiz", function(req,res){
-	res.sendFile(__dirname+"/src/quiz.html");
+	res.sendFile(__dirname+"/routes/quiz.html");
+	res.render('quiz');
 });
 
 app.get("/pagamento", function(req, res){

@@ -17,16 +17,16 @@ const perguntas = [
 let indicePerguntas =0;
 let pontuacaoFinal = 0;
 
-const pergunta = document.getElementById("pergunta");
+const Elementopergunta = document.getElementById("pergunta");
 const botoesResposta = document.querySelectorAll(".botao-resposta");
 const botaoProximo = document.getElementById("botao-proximo");
-const containerResultdo = document.getElementById("resultado");
-const pontuacao = document.getElementById("pontuacao")
+const containerResultado = document.getElementById("resultado");
+const ElementoPontuacao = document.getElementById("pontuacao")
 
 
 function iniciarQuiz(){
     perguntaAtual = 0;
-    pontuacao = 0;
+    ElementoPontuacao = 0;
     exibirPergunta();
 }
 
@@ -65,7 +65,7 @@ function selecionarResposta(e){
 
 function exibirResultado(){
     containerResultado.style.display="block";
-    pontuacao.innerText='${potuacaoFinal} de ${perguntas.length}';
+    Elementopontuacao.innerText='${potuacaoFinal} de ${perguntas.length}';
 }
 
 botaoProximo.addEventListener("click", ()=>{
