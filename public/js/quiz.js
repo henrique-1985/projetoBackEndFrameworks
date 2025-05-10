@@ -1,4 +1,4 @@
-const perguntas = [
+const perguntas = [ //Array que guarda cada grupo de pergunta e suas resposta.
     { //Pergunta 1
         pergunta: "O céu é Azul.",
         respostas:["Verdadeiro", "Falso"],
@@ -7,73 +7,78 @@ const perguntas = [
     },
 
     { //Pergunta 2
-        pergunta: "O céu é Azul.",
+        pergunta: "O céu é Verde.",
         respostas:["Verdadeiro", "Falso"],
-        correta:"Verdadeiro"
+        correta:"Falso"
 
-    },
+    }
 ];
 
-let indicePerguntas =0;
-let pontuacaoFinal = 0;
+let indicePerguntaAtual = 0; 
+let pontuacao = 0;
 
-const Elementopergunta = document.getElementById("pergunta");
+
+//Vinculando class e id's html como const's js
+
+const elementoPergunta = document.getElementById("pergunta");
 const botoesResposta = document.querySelectorAll(".botao-resposta");
 const botaoProximo = document.getElementById("botao-proximo");
 const containerResultado = document.getElementById("resultado");
-const ElementoPontuacao = document.getElementById("pontuacao")
+const elementoPontuacao = document.getElementById("pontuacao")
 
 
 function iniciarQuiz(){
     perguntaAtual = 0;
-    ElementoPontuacao = 0;
-    exibirPergunta();
+    pontuacao = 0;
+    botaoProximo.style.display="none"; //Não está visível
+    containerResultado.style.display="none"; //Não está visível
+    exibirPergunta(); //Inicializa função
 }
 
 function exibirPergunta(){
     resetar();
-    const perguntasAtual= perguntas[perguntaAtual];
-    pergunta.innerText = perguntaAtual.pergunta;
-    botoesResposta.forEach((botao,index) =>{
+    const perguntaAtual= perguntas[indicePerguntaAtual]; //Atualiza perguntas de acordo com o índice do ARRAY
+    elementoPergunta.innerText = perguntaAtual.pergunta;
+
+    botoesResposta.forEach((botao,index) => { //Atualiza respostas de acordo com o índice do ARRAY
         botao.innerText=perguntaAtual.respostas[index];
         botao.addEventListener("click", selecionarResposta);
     });
 }
 
 function resetar(){
-    botaoProximo.style.display = "none";
-    botoesResposta.forEach(botao =>{
+    botaoProximo.style.display = "none"; // Botão NÃO fica visível
+    botoesResposta.forEach(botao => {
         botao.disabled = false;
-    botao.classList.remove("correto", "incorreto");
+        botao.classList.remove("correto", "incorreto");
     });
 }
 
 function selecionarResposta(e){
     const botaoSelecionado = e.target;
-    const respostaCorreta = botaoSelecionado.innerTect === perguntas[indicePerguntas].correta;
-    if (respostaCorreta){
-        botaoSelecionado.classList.add("correto");
-        pontuacaoFinal ++
+    const respostaCorreta = botaoSelecionado.innerText === perguntas[indicePerguntaAtual].correta;
+    if (respostaCorreta) {
+        botaoSelecionado.classList.add("correto"); 
+        pontuacao++; //Aumenta pontuação em +1 ponto
     } else{
         botaoSelecionado.classList.add("incorreto");
-
     }
-
     botoesResposta.forEach(botao => botao.disabled=true);
-    botaoProximo.style.display="block";
+    botaoProximo.style.display="block"; //Botão de Próxima Questão fica visível
+    
 }
 
 function exibirResultado(){
-    containerResultado.style.display="block";
-    Elementopontuacao.innerText='${potuacaoFinal} de ${perguntas.length}';
+    containerResultado.style.display="block"; //Container de Resultado fia visível
+    elementoPontuacao.innerText= pontuacao; //Pontuação final é inserida no texto
 }
 
 botaoProximo.addEventListener("click", ()=>{
-    indicePerguntas++;
-    if(indicePerguntas<perguntas.length){
-        exibirPergunta();
+    indicePerguntaAtual++; //contador do índice vinculado ao ARRAY
+    if(indicePerguntaAtual<perguntas.length){ 
+        exibirPergunta();//Exibe pergunta posterior
     }else{
-        exibirResultado();
+        exibirResultado(); //Exibe resultado se o contador do índice chegar ao length do array.
     }
 });
 
