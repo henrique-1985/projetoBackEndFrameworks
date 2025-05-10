@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>QUIZ </title>
+        <link rel="stylesheet" type="text/css" href="/css/quiz.css">
+    </head>
+    <body>   
+        <div class="quiz-container">
+           <div id="quiz1">
+                <h1>Quiz Teste</h1>
+                <form action= "/add-pontuacao" method="POST">
+                    <div class="pergunta-container">
+                        <h2 id="pergunta">1.Pergunta</h2> <!-- Modelo de Pegunta a ser atualizado pelo JS-->
+                        <ul>
+                            <li><button class="botao-resposta">Resposta 1</button></li> <!--Modelo de Resposta a ser atualizado pelo JS-->
+                            <li><button class="botao-resposta">Resposta 2</button></li> <!--Modelo de Resposta a ser atualizado pelo JS-->
+                        </ul>
+                    </div>
+                    <button id="botao-proximo" class="botao" style="display: none;">Próxima Questão</button>
+                    <button type="submit"id="botao-resultado" class="botao" style="display:none;">Enviar Resultado</button>
+                    <div id="resultado" style="display: none;">
+                        <h2>RESULTADO: <span id="pontuacao" name="pontuacao"></span></h2> <!--Demarcação de exibição da Pontuação final-->
+                    </div>
+                </form>
+            </div>    
+        </div>
+        <script src="/js/quiz.js"></script>
+    </body>
+</html>
+
+

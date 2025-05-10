@@ -4,6 +4,9 @@ const path = require('path');
 const {engine} = require ("express-handlebars");
 const bodyParser = require("body-parser");
 const moment = require('moment')
+
+const Pontuacao = require ("./models/Pontuacao");
+
 const Pagamento = require ("./models/Pagamento");
 app.engine('handlebars', engine({
 	defaultLayout: 'main',
@@ -19,9 +22,31 @@ app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname+'/public')));
 //teste
 
-app.get("/quiz", function(req,res){
+
+
+app.get("/quiz", function(req,res){ //Rota para acessar quiz
 	res.sendFile(__dirname+"/routes/quiz.html");
 });
+
+app.get("/pontuacao", function(req,res){
+	Pontuacao.findAll({order: [['id', 'Asc']]}).then(function(pontuacoes){
+		res.render('pontuacao',{pontuacoes: pontuacoes});
+	})
+});
+
+app.get('/del-pontuacao/:id', function(req, res){
+	Pontuacao.destroy({
+		where: {'id' : req.params.id}
+	}).then(function(){
+		res.redirect('/pontuacao')
+		//res.send("Pagamento excluído com sucesso!")
+	}).catch(function(erro){
+		res.send("Erro ao realizar a exclusão da pontuacao")
+	})
+
+});
+
+//modelo -------------
 
 app.get("/pagamento", function(req, res){
 	Pagamento.findAll({order: [['id', 'Asc']]}).then(function(pagamentos){
@@ -53,4 +78,4 @@ app.get('/del-pagamento/:id', function(req, res){
 	})
 })
 app.listen(8081);
-console.log("Servidor rodando em http://localhost:8081")
+console.log("Servidor rodando em http://localhost:8081");

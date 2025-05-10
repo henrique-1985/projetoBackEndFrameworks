@@ -14,7 +14,7 @@ const perguntas = [ //Array que guarda cada grupo de pergunta e suas resposta.
     }
 ];
 
-let indicePerguntaAtual = 0; 
+let indicePerguntaAtual = 0; //Lenght
 let pontuacao = 0;
 
 
