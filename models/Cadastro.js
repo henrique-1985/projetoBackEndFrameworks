@@ -1,6 +1,6 @@
 const db = require("./db")
 
-const Cadastro = db.sequelize.define('cadastro',{
+const Cadastro = db.sequelize.define('cadastros',{
     nome: {
         type:db.Sequelize.STRING
     },
