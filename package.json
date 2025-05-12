@@ -8,10 +8,10 @@
     "https": "^1.0.0",
     "moment": "^2.29.4",
     "mysql": "^2.18.1",
-    "mysql2": "^3.6.0",
+    "mysql2": "^3.14.1",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
-    "sequelize": "^6.32.1"
+    "sequelize": "^6.37.7"
   },
   "name": "node_mysql",
   "version": "1.0.0",
