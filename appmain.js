@@ -25,11 +25,6 @@ app.use(express.static(path.join(__dirname+'/public')));
 
 
 
-//app.get("/quiz", function(req,res){ //Rota para acessar quiz
-//	res.sendFile(__dirname+"/routes/quiz.html");
-//});
-
-
 app.get("/pontuacao", function(req,res){
 	Pontuacao.findAll({order: [['id', 'Asc']]}).then(function(pontuacoes){
 		res.render('pontuacao',{pontuacoes: pontuacoes});
@@ -42,8 +37,7 @@ app.get("/cad-pontuacao", function(req, res){
 
 app.post("/add-pontuacao", function(req, res){
 	Pontuacao.create({
-		quiz: req.body.quiz,
-		pontuacao: req.body.pontuacao
+		pontO: req.body.ponto
 	}).then(function(){
 		res.redirect('/pontuacao')
 		//res.send("cadastrado com sucesso")
@@ -80,7 +74,10 @@ app.get("/cad-cadastro", function(req, res){
 app.post("/add-cadastro", function(req, res){
 	Cadastro.create({
 		nome: req.body.nome,
-		email: req.body.email
+		email: req.body.email,
+		fone: req.body.fone,
+		senha:req.body.senha,
+
 	}).then(function(){
 		res.redirect('/cadastro')
 		//res.send("cadastrado com sucesso")
