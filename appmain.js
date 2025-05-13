@@ -6,8 +6,9 @@ const bodyParser = require("body-parser");
 const moment = require('moment')
 
 const Pontuacao = require ("./models/Pontuacao");
-
+const Cadastro =require ("./models/Cadastro");
 const Pagamento = require ("./models/Pagamento");
+
 app.engine('handlebars', engine({
 	defaultLayout: 'main',
 	helpers:{
@@ -34,6 +35,19 @@ app.get("/pontuacao", function(req,res){
 	})
 });
 
+app.post("/add-pontuacao", function(req, res){
+	Pontuacao.create({
+		quiz: req.body.quiz,
+		pontuacao: req.body.pontuacao
+	}).then(function(){
+		res.redirect('/pontuacao')
+		//res.send("cadastrado com sucesso")
+	}).catch(function(erro){
+		res.send("Erro ao realizar o cadastramento da Pontuacao!" + erro)
+	})
+});
+
+
 app.get('/del-pontuacao/:id', function(req, res){
 	Pontuacao.destroy({
 		where: {'id' : req.params.id}
@@ -42,6 +56,42 @@ app.get('/del-pontuacao/:id', function(req, res){
 		//res.send("Pagamento excluído com sucesso!")
 	}).catch(function(erro){
 		res.send("Erro ao realizar a exclusão da pontuacao")
+	})
+
+});
+
+///cadastro
+
+app.get("/cadastro", function(req,res){
+	Cadastro.findAll({order: [['id', 'Asc']]}).then(function(cadastros){
+		res.render('cadastro',{cadastros: cadastros});
+	})
+});
+
+app.get("/cad-cadastro", function(req, res){
+	res.render("cad_cadastro");
+});
+
+app.post("/add-cadastro", function(req, res){
+	Cadastro.create({
+		nome: req.body.nome,
+		email: req.body.email
+	}).then(function(){
+		res.redirect('/cadastro')
+		//res.send("cadastrado com sucesso")
+	}).catch(function(erro){
+		res.send("Erro ao realizar o cadastramento!" + erro)
+	})
+});
+
+app.get('/del-cadastro/:id', function(req, res){
+	Cadastro.destroy({
+		where: {'id' : req.params.id}
+	}).then(function(){
+		res.redirect('/cadastro')
+		//res.send("Pagamento excluído com sucesso!")
+	}).catch(function(erro){
+		res.send("Erro ao realizar a exclusão do cadastro")
 	})
 
 });
@@ -77,5 +127,5 @@ app.get('/del-pagamento/:id', function(req, res){
 		res.send("Erro ao realizar a exclusão do Pagamento")
 	})
 })
-app.listen(8081);
-console.log("Servidor rodando em http://localhost:8081");
+app.listen(8085);
+console.log("Servidor rodando em http://localhost:8085");
