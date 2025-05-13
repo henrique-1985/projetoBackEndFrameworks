@@ -5,8 +5,8 @@
 }
 
 
-body{
-    background-color:rgb(231, 230, 236);
+.body{
+    background-color:rgb(255, 169, 234);
     font-family:Arial, Helvetica, sans-serif;
     min-height:100vh;
     gap:60px;
@@ -17,11 +17,25 @@ h1{
     padding:15px;
 }
 
-.button-delete{
+.button{
     border-radius:10px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding:10px;
+    padding:5px;
     background-color: azure;
+
+}
+
+
+
+.form-cadastro{
+
+    font-family: sans-serif;
+    font-size:20px;
+    padding:15px;
+    margin:20px;
+    max-width:30%;
+    max-height:30%;
+    gap:10px;
 }
 
 .container{

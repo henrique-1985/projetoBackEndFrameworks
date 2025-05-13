@@ -37,7 +37,7 @@ app.get("/cad-pontuacao", function(req, res){
 
 app.post("/add-pontuacao", function(req, res){
 	Pontuacao.create({
-		pontO: req.body.ponto
+		ponto: req.body.ponto
 	}).then(function(){
 		res.redirect('/pontuacao')
 		//res.send("cadastrado com sucesso")

@@ -3,7 +3,7 @@ const db = require("./db")
 const Pontuacao = db.sequelize.define('pontuacao',{
    
     ponto: {
-        type:db.Sequelize.INTEGER
+        type:db.Sequelize.STRING
     },
     
 })
