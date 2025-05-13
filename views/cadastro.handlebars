@@ -6,7 +6,7 @@
 		Nome:{{dataValues.nome}}<br>
 		E-mail:{{dataValues.email}}<br>
 		Cadastrado:{{#formatDate dataValues.createdAt}}{{/formatDate}}<br><br>
-		<a href="/del-cadastro/{{dataValues.id}}"><button class="button">Apagar</button></a>
+		<a href="/del-cadastro/{{dataValues.id}}"><button class="button-delete">Apagar</button></a>
 		<hr>
 	{{/each}}
 </div>
