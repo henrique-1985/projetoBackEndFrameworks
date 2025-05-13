@@ -11,6 +11,6 @@ const Pontuacao = db.sequelize.define('pontuacao',{
 })
 
 //Criar a tabela
-//Pagamento.sync({force:true})
+//Pontuacao.sync({force:true})
 
 module.exports = Pontuacao

@@ -18,13 +18,14 @@ let indicePerguntaAtual = 0; //Lenght
 let pontuacao = 0;
 
 
+
 //Vinculando class e id's html como const's js
 
 const elementoPergunta = document.getElementById("pergunta");
 const botoesResposta = document.querySelectorAll(".botao-resposta");
 const botaoProximo = document.getElementById("botao-proximo");
 const containerResultado = document.getElementById("resultado");
-const elementoPontuacao = document.getElementById("pontuacao")
+const elementoPontuacao = document.getElementById("pontuacao");
 
 
 function iniciarQuiz(){

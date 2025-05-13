@@ -11,6 +11,8 @@ const Cadastro = db.sequelize.define('cadastros',{
 })
 
 //Criar a tabela
-Cadastro.sync({force:true})
+
+//Tranformar de volta pra comentário depois de criar a tabela!(evita duplicatas)
+//Cadastro.sync({force:true})
 
 module.exports = Cadastro
