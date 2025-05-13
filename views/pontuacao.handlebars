@@ -1,0 +1,12 @@
+<h1>Listar Pontuacao</h1>
+
+<div class="container":>
+	{{#each pontuacoes}}
+		ID:{{dataValues.id}}<br>
+		<!--Quiz:{{dataValues.quiz}} -->
+		Pontuação:{{dataValues.ponto}}<br>
+		Cadastrado:{{#formatDate dataValues.createdAt}}{{/formatDate}}<br><br>
+		<a href="/del-pontuacao/{{dataValues.id}}"><button class="button-delete">Apagar</button></a>
+		<hr>
+	{{/each}}
+</div>

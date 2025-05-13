@@ -1,9 +1,14 @@
 const express = require("express");
 const app = express();
+const path = require('path');
 const {engine} = require ("express-handlebars");
 const bodyParser = require("body-parser");
 const moment = require('moment')
+
+const Pontuacao = require ("./models/Pontuacao");
+const Cadastro =require ("./models/Cadastro");
 const Pagamento = require ("./models/Pagamento");
+
 app.engine('handlebars', engine({
 	defaultLayout: 'main',
 	helpers:{
@@ -15,7 +20,89 @@ app.engine('handlebars', engine({
 app.set('view engine', 'handlebars')
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
+app.use(express.static(path.join(__dirname+'/public')));
 //teste
+
+
+
+//app.get("/quiz", function(req,res){ //Rota para acessar quiz
+//	res.sendFile(__dirname+"/routes/quiz.html");
+//});
+
+
+app.get("/pontuacao", function(req,res){
+	Pontuacao.findAll({order: [['id', 'Asc']]}).then(function(pontuacoes){
+		res.render('pontuacao',{pontuacoes: pontuacoes});
+	})
+});
+
+app.get("/cad-pontuacao", function(req, res){
+	res.render("cad_pontuacao");
+});
+
+app.post("/add-pontuacao", function(req, res){
+	Pontuacao.create({
+		quiz: req.body.quiz,
+		pontuacao: req.body.pontuacao
+	}).then(function(){
+		res.redirect('/pontuacao')
+		//res.send("cadastrado com sucesso")
+	}).catch(function(erro){
+		res.send("Erro ao realizar o cadastramento da Pontuacao!" + erro)
+	})
+});
+
+
+app.get('/del-pontuacao/:id', function(req, res){
+	Pontuacao.destroy({
+		where: {'id' : req.params.id}
+	}).then(function(){
+		res.redirect('/pontuacao')
+		//res.send("Pontuacao excluída com sucesso!")
+	}).catch(function(erro){
+		res.send("Erro ao realizar a exclusão da pontuacao")
+	})
+
+});
+
+///cadastro
+
+app.get("/cadastro", function(req,res){
+	Cadastro.findAll({order: [['id', 'Asc']]}).then(function(cadastros){
+		res.render('cadastro',{cadastros: cadastros});
+	})
+});
+
+app.get("/cad-cadastro", function(req, res){
+	res.render("cad_cadastro");
+});
+
+app.post("/add-cadastro", function(req, res){
+	Cadastro.create({
+		nome: req.body.nome,
+		email: req.body.email
+	}).then(function(){
+		res.redirect('/cadastro')
+		//res.send("cadastrado com sucesso")
+	}).catch(function(erro){
+		res.send("Erro ao realizar o cadastramento!" + erro)
+	})
+});
+
+app.get('/del-cadastro/:id', function(req, res){
+	Cadastro.destroy({
+		where: {'id' : req.params.id}
+	}).then(function(){
+		res.redirect('/cadastro')
+		//res.send("Pagamento excluído com sucesso!")
+	}).catch(function(erro){
+		res.send("Erro ao realizar a exclusão do cadastro")
+	})
+
+});
+
+//modelo -------------
+
 app.get("/pagamento", function(req, res){
 	Pagamento.findAll({order: [['id', 'Asc']]}).then(function(pagamentos){
 		res.render('pagamento', {pagamentos: pagamentos});
@@ -45,5 +132,5 @@ app.get('/del-pagamento/:id', function(req, res){
 		res.send("Erro ao realizar a exclusão do Pagamento")
 	})
 })
-app.listen(8081);
-console.log("Servidor rodando em http://localhost:8081")
+app.listen(8085);
+console.log("Servidor rodando em http://localhost:8085");
