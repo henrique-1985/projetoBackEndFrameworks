@@ -1,11 +1,9 @@
 const db = require("./db")
 
 const Pontuacao = db.sequelize.define('pontuacao',{
-    quiz: {
+   
+    ponto: {
         type:db.Sequelize.STRING
-    },
-    pontuacao: {
-        type:db.Sequelize.DOUBLE
     },
     
 })

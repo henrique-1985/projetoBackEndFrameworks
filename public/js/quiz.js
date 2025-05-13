@@ -36,6 +36,7 @@ const elementoPontuacao = document.getElementById("pontuacao");
 
 
 
+
 function iniciarQuiz(){
     perguntaAtual = 0;
     pontuacao = 0;
@@ -81,7 +82,7 @@ function selecionarResposta(e){
 
 function exibirResultado(){
     containerResultado.style.display="block"; //Container de Resultado fia visível
-    elementoPontuacao.innerText= pontuacao;
+    elementoPontuacao.value= pontuacao;
     botaoResultado.style.display="block"; //Pontuação final é inserida no texto
 }
 

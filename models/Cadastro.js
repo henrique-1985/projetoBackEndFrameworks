@@ -7,6 +7,12 @@ const Cadastro = db.sequelize.define('cadastros',{
     email: {
         type:db.Sequelize.STRING
     },
+    fone:{
+        type:db.Sequelize.STRING
+    },
+    senha:{
+        type:db.Sequelize.STRING
+    },
     
 })
 
