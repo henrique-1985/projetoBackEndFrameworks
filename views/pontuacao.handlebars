@@ -3,7 +3,6 @@
 <div class="container":>
 	{{#each pontuacoes}}
 		ID:{{dataValues.id}}<br>
-		
 		Pontuação:{{dataValues.ponto}}<br>
 		Cadastrado:{{#formatDate dataValues.createdAt}}{{/formatDate}}<br><br>
 		<a href="/del-pontuacao/{{dataValues.id}}"><button class="btn btn-outline-danger">Apagar</button></a>

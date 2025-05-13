@@ -98,6 +98,19 @@ app.get('/del-cadastro/:id', function(req, res){
 
 });
 
+app.get('/put-cadastro/:id', function(req, res){
+	Cadastro.update({
+		where: {'id' : req.params.id}
+	}).then(function(){
+		res.redirect('/cadastro')
+		//res.send("Cadastro atualizado com sucesso!")
+	}).catch(function(erro){
+		res.send("Erro ao realizar a atualização do cadastro")
+	})
+
+});
+
+
 //modelo -------------
 
 app.get("/pagamento", function(req, res){
