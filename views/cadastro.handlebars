@@ -1,11 +1,12 @@
 <h1>Listar Cadastros</h1>
 
-
-{{#each cadastros}}
-	ID:{{dataValues.id}}<br>
-	Nome:{{dataValues.nome}}<br>
-	E-mail:{{dataValues.email}}<br>
-	Cadastrado:{{#formatDate dataValues.createdAt}}{{/formatDate}}<br><br>
-	<a href="/del-cadastro/{{dataValues.id}}"><button>Apagar</button></a>
-	<hr>
-{{/each}}
+<div class="container">
+	{{#each cadastros}}
+		ID:{{dataValues.id}}<br>
+		Nome:{{dataValues.nome}}<br>
+		E-mail:{{dataValues.email}}<br>
+		Cadastrado:{{#formatDate dataValues.createdAt}}{{/formatDate}}<br><br>
+		<a href="/del-cadastro/{{dataValues.id}}"><button class="button">Apagar</button></a>
+		<hr>
+	{{/each}}
+</div>
