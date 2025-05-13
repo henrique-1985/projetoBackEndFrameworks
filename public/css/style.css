@@ -4,9 +4,8 @@
     box-sizing:border-box;
 }
 
-
-.body{
-    background-color:rgb(255, 169, 234);
+body{
+    background-color:rgb(245, 133, 133);
     font-family:Arial, Helvetica, sans-serif;
     min-height:100vh;
     gap:60px;
@@ -24,8 +23,6 @@ h1{
     background-color: azure;
 
 }
-
-
 
 .form-cadastro{
 
