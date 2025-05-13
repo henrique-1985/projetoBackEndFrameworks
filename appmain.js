@@ -25,14 +25,19 @@ app.use(express.static(path.join(__dirname+'/public')));
 
 
 
-app.get("/quiz", function(req,res){ //Rota para acessar quiz
-	res.sendFile(__dirname+"/routes/quiz.html");
-});
+//app.get("/quiz", function(req,res){ //Rota para acessar quiz
+//	res.sendFile(__dirname+"/routes/quiz.html");
+//});
+
 
 app.get("/pontuacao", function(req,res){
 	Pontuacao.findAll({order: [['id', 'Asc']]}).then(function(pontuacoes){
 		res.render('pontuacao',{pontuacoes: pontuacoes});
 	})
+});
+
+app.get("/cad-pontuacao", function(req, res){
+	res.render("cad_pontuacao");
 });
 
 app.post("/add-pontuacao", function(req, res){
@@ -53,7 +58,7 @@ app.get('/del-pontuacao/:id', function(req, res){
 		where: {'id' : req.params.id}
 	}).then(function(){
 		res.redirect('/pontuacao')
-		//res.send("Pagamento excluído com sucesso!")
+		//res.send("Pontuacao excluída com sucesso!")
 	}).catch(function(erro){
 		res.send("Erro ao realizar a exclusão da pontuacao")
 	})

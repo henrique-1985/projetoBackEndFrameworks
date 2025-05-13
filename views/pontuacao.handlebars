@@ -3,10 +3,10 @@
 
 {{#each pontuacoes}}
 	ID:{{dataValues.id}}<br>
-	Quiz:{{dataValues.quiz}}<br>
+	<!--Quiz:{{dataValues.quiz}} -->
 	Pontuação:{{dataValues.pontuacao}}<br>
 	Cadastrado:{{#formatDate dataValues.createdAt}}{{/formatDate}}<br><br>
-	<a href="/del-pontucao/{{dataValues.id}}"><button>Apagar</button></a>
+	<a href="/del-pontuacao/{{dataValues.id}}"><button>Apagar</button></a>
 	<hr>
 {{/each}}
 

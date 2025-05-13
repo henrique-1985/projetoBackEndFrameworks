@@ -11,6 +11,6 @@ const Pagamento = db.sequelize.define('pagamento',{
 })
 
 //Criar a tabela
-Pagamento.sync({force:true})
+//Pagamento.sync({force:true})
 
 module.exports = Pagamento
