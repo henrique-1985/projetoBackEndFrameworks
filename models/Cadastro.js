@@ -1,11 +1,14 @@
+const db = require("./db")
+
+
 const Cadastro = db.sequelize.define('cadastros',{
 
-    id:{
-        type:db.Sequelize.INTEGER.UNSIGNED,
-        autoIncrement:true,
-        primaryKey:true
+   // id:{
+        //type:db.Sequelize.INTEGER.UNSIGNED,
+        //autoIncrement:true,
+      //  primaryKey:true
 
-    },
+    //},
     nome: {
         type:db.Sequelize.STRING
     },
