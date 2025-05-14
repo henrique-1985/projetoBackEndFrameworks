@@ -9,6 +9,7 @@
 		Senha:{{dataValues.senha}}<br>
 		Cadastrado:{{#formatDate dataValues.createdAt}}{{/formatDate}}<br><br>
 		<a href="/del-cadastro/{{dataValues.id}}"><button class="btn btn-outline-danger">Apagar</button></a>
+		<a href="/edit-cadastro/{{dataValues.id}}"><button class="btn btn-outline-danger">Editar</button></a>
 		<hr>
 	{{/each}}
 </div>

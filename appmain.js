@@ -98,8 +98,25 @@ app.get('/del-cadastro/:id', function(req, res){
 
 });
 
-app.get('/put-cadastro/:id', function(req, res){
+app.get('/edit-cadastro/:id', function(req, res){
+    Cadastro.findByPk(req.params.id).then(function(cadastro){
+        if (cadastro) {
+            res.render('edit_cadastro', { cadastro: cadastro.dataValues });
+        } else {
+            res.send("Cadastro não encontrado");
+        }
+    }).catch(function(erro){
+        res.send("Erro ao buscar cadastro");
+    });
+});
+
+app.put('/put-cadastro/:id', function(req, res){
 	Cadastro.update({
+		nome: req.body.nome,
+		email: req.body.email,
+		fone: req.body.fone,
+		senha:req.body.senha,
+    }, {
 		where: {'id' : req.params.id}
 	}).then(function(){
 		res.redirect('/cadastro')
