@@ -92,15 +92,16 @@ app.post("/add-cadastro", function(req, res){
 
 
 
-app.get('/put-cadastro/:id', function(req, res){
+app.patch('/put-cadastro/:id', function(req, res){
 	Cadastro.update({
 		nome: req.body.nome,
 		email: req.body.email,
 		fone: req.body.fone,
 		senha:req.body.senha,
 	},
-		{where:{'id' : req.params.id}}
-	).then(function(){
+	{
+		where:{'id' : req.params.id}
+	}).then(function(){
 		res.redirect('/cadastro')
 		//res.send("Cadastro atualziado com sucesso!")
 	}).catch(function(erro){
