@@ -71,6 +71,10 @@ app.get("/cad-cadastro", function(req, res){
 	res.render("cad_cadastro");
 });
 
+app.get("/edit-cadastro/:id", function(req, res){
+	res.render("edit_cadastro");
+});
+
 app.post("/add-cadastro", function(req, res){
 	Cadastro.create({
 		nome: req.body.nome,
@@ -86,6 +90,23 @@ app.post("/add-cadastro", function(req, res){
 	})
 });
 
+
+
+app.post("/put-cadastro", function(req, res){
+	Cadastro.update({
+		nome: req.body.nome,
+		email: req.body.email,
+		fone: req.body.fone,
+		senha:req.body.senha,
+			where: {'id': req.params.id}
+	}).then(function(){
+		res.redirect('/cadastro')
+		//res.send("Cadastro atualziado com sucesso!")
+	}).catch(function(erro){
+		res.send("Erro ao realizar a atualização do Cadastro")
+	})
+})
+
 app.get('/del-cadastro/:id', function(req, res){
 	Cadastro.destroy({
 		where: {'id' : req.params.id}
@@ -94,35 +115,6 @@ app.get('/del-cadastro/:id', function(req, res){
 		//res.send("Pagamento excluído com sucesso!")
 	}).catch(function(erro){
 		res.send("Erro ao realizar a exclusão do cadastro")
-	})
-
-});
-
-app.get('/edit-cadastro/:id', function(req, res){
-    Cadastro.findByPk(req.params.id).then(function(cadastro){
-        if (cadastro) {
-            res.render('edit_cadastro', { cadastro: cadastro.dataValues });
-        } else {
-            res.send("Cadastro não encontrado");
-        }
-    }).catch(function(erro){
-        res.send("Erro ao buscar cadastro");
-    });
-});
-
-app.put('/put-cadastro/:id', function(req, res){
-	Cadastro.update({
-		nome: req.body.nome,
-		email: req.body.email,
-		fone: req.body.fone,
-		senha:req.body.senha,
-    }, {
-		where: {'id' : req.params.id}
-	}).then(function(){
-		res.redirect('/cadastro')
-		//res.send("Cadastro atualizado com sucesso!")
-	}).catch(function(erro){
-		res.send("Erro ao realizar a atualização do cadastro")
 	})
 
 });
@@ -149,6 +141,8 @@ app.post("/add-pagamento", function(req, res){
 		res.send("Erro ao realizar o cadastramento do pagamento!" + erro)
 	})
 });
+
+
 app.get('/del-pagamento/:id', function(req, res){
 	Pagamento.destroy({
 		where: {'id': req.params.id}
