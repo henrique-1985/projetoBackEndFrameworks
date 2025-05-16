@@ -9,9 +9,17 @@ const Pontuacao = require ("./models/Pontuacao");
 const Cadastro =require ("./models/Cadastro");
 const Pagamento = require ("./models/Pagamento");
 
-//const loginAtual = require ("./models/Cadastro");
 
+const loginAtual= 0;
 
+const contas= [ //variável para guardas cadastros para login
+	{
+		nome:"UsuarioGeral",
+		senha:"Aa#123456",
+		userId:0,
+	
+	}
+];
 
 
 app.engine('handlebars', engine({
@@ -26,18 +34,35 @@ app.set('view engine', 'handlebars')
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname+'/public')));
-//teste
 
+
+//login
+
+app.get("/login-valid",function(req,res){
+		function compare(nomeLog,senhaLog){
+			for (let i=0; i<contas.length;i++){
+				if ((nomeLog===contas[i]) && (senhaLog===contas[i])){
+					loginAtual=contas[userId],
+						res.render("cad_pontuacao");
+				}else{
+					alert("Usuário ou senha incorretos"+erro);
+						res.render("login");
+			}
+		}
+	};
+});
+
+
+
+app.get("/login",function(req,res){
+	res.render("login");
+});
 
 
 //home
 
 
 app.get("/", function(req,res){
-	res.render("home");
-});
-
-app.get("/home", function(req,res){
 	res.render("home");
 });
 
@@ -56,6 +81,7 @@ app.get("/cad-pontuacao", function(req, res){
 
 app.post("/add-pontuacao", function(req, res){
 	Pontuacao.create({
+		userId:loginAtual,
 		ponto: req.body.ponto
 	}).then(function(){
 		res.redirect('/pontuacao')
@@ -101,9 +127,14 @@ app.post("/add-cadastro", function(req, res){
 		email: req.body.email,
 		fone: req.body.fone,
 		senha:req.body.senha,
-
 	}).then(function(){
+		contas.push({
+			nome:req.body.nome,
+			senha:req.body.senha,
+			userId:req.params.userId,
+		}),
 		res.redirect('/cadastro')
+		console.log("lista: ",contas)
 		//res.send("cadastrado com sucesso")
 	}).catch(function(erro){
 		res.send("Erro ao realizar o cadastramento!" + erro)

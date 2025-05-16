@@ -1,15 +1,17 @@
 <h1>Lista de Cadastros</h1>
 
 <div class="container">
-	{{#each cadastros}}
-		ID:{{dataValues.userId}}<br>
-		Nome:{{dataValues.nome}}<br>
-		E-mail:{{dataValues.email}}<br>
-		Telefone:{{dataValues.fone}}<br>
-		Senha:{{dataValues.senha}}<br>
-		Cadastrado:{{#formatDate dataValues.createdAt}}{{/formatDate}}<br><br>
-		<a href="/del-cadastro/{{dataValues.userId}}"><button class="btn btn-outline-danger" id="delete-button">Apagar</button></a>
-		<a href="/edit-cadastro/{{dataValues.userId}}"><button class="btn btn-outline-danger" id="edit-button">Editar</button></a>
-		<hr>
-	{{/each}}
+	<div class="valores">
+		{{#each cadastros}}
+			ID:  {{dataValues.userId}}<br>
+			Nome: {{dataValues.nome}}<br>
+			E-mail: {{dataValues.email}}<br>
+			Telefone: {{dataValues.fone}}<br>
+			Senha: {{dataValues.senha}}<br>
+			Cadastrado: {{#formatDate dataValues.createdAt}}{{/formatDate}}<br><br>
+			<a href="/del-cadastro/{{dataValues.userId}}"><button class="btn btn-outline-danger" id="delete-button">Apagar</button></a>
+			<a href="/edit-cadastro/{{dataValues.userId}}"><button class="btn btn-outline-danger" id="edit-button">Editar</button></a>
+			<hr>
+		{{/each}}
+	</div>
 </div>
