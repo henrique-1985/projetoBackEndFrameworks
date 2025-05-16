@@ -30,6 +30,20 @@ app.use(express.static(path.join(__dirname+'/public')));
 
 
 
+//home
+
+
+app.get("/", function(req,res){
+	res.render("home");
+});
+
+app.get("/home", function(req,res){
+	res.render("home");
+});
+
+
+//pontuacao
+
 app.get("/pontuacao", function(req,res){
 	Pontuacao.findAll({order: [['userId', 'Asc']]}).then(function(pontuacoes){
 		res.render('pontuacao',{pontuacoes: pontuacoes});

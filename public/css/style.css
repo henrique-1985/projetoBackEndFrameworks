@@ -54,15 +54,15 @@ h1{
     justify-content:center;
 }
 
-.button{
+button{
     border-radius:10px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding:5px;
+    padding:20px;
     display:flex;
-    justify-content:flex-start;
-    
-
+    flex-wrap:wrap;
+    flex-direction:column;
 }
+
 
 .form-cadastro{
 
@@ -83,12 +83,12 @@ h1{
 
     font-family: sans-serif;
     font-size:20px;
-    border:6px;
     border-radius:8px;
-    border-color:black;
     background-color: rgb(255, 255, 255);
-    display:grid;
-    grid-template-columns: repeat(auto-fit, 100px);
-    padding:30px;
+    display:flex;
+    flex-wrap:wrap;
+    flex-flow:row;
+    padding:20px;
+    justify-content:space-between;
 }
 
