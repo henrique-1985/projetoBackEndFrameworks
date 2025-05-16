@@ -116,8 +116,19 @@ app.get("/cad-cadastro", function(req, res){
 	res.render("cad_cadastro");
 });
 
-app.get("/edit-cadastro/:userId", function(req, res){
-	res.render("edit_cadastro");
+app.get("/edit-cadastro/:userId", function(req, res) {
+  Cadastro.findByPk(req.params.userId)
+  .then(function(usuario) {
+	res.render("edit_cadastro", {
+      userId: usuario.userId,
+      nome: usuario.nome,
+      email: usuario.email,
+      fone: usuario.fone,
+      senha: usuario.senha
+    });
+  }).catch(function(erro) {
+    res.send("Erro ao carregar dados do usuário!" + erro);
+  });
 });
 
 app.post("/add-cadastro", function(req, res){
@@ -141,9 +152,7 @@ app.post("/add-cadastro", function(req, res){
 	})
 });
 
-
-
-app.patch('/put-cadastro', function(req, res){
+app.post('/put-cadastro/:userid', function(req, res){
 	Cadastro.update({
 		nome: req.body.nome,
 		email: req.body.email,
@@ -151,12 +160,12 @@ app.patch('/put-cadastro', function(req, res){
 		senha:req.body.senha,
 	},
 	{
-		where:{'userId' : req.params.id}
+		where:{ userId: req.params.userid}
 	}).then(function(){
 		res.redirect('/cadastro')
-		//res.send("Cadastro atualziado com sucesso!")
+		//res.send("Cadastro atualizado com sucesso!")
 	}).catch(function(erro){
-		res.send("Erro ao realizar a atualização do Cadastro"+erro)
+		res.send("Erro ao tentar atualizar o cadastro" + erro)
 	})
 });
 
