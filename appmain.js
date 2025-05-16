@@ -9,6 +9,11 @@ const Pontuacao = require ("./models/Pontuacao");
 const Cadastro =require ("./models/Cadastro");
 const Pagamento = require ("./models/Pagamento");
 
+//const loginAtual = require ("./models/Cadastro");
+
+
+
+
 app.engine('handlebars', engine({
 	defaultLayout: 'main',
 	helpers:{
@@ -25,8 +30,22 @@ app.use(express.static(path.join(__dirname+'/public')));
 
 
 
+//home
+
+
+app.get("/", function(req,res){
+	res.render("home");
+});
+
+app.get("/home", function(req,res){
+	res.render("home");
+});
+
+
+//pontuacao
+
 app.get("/pontuacao", function(req,res){
-	Pontuacao.findAll({order: [['id', 'Asc']]}).then(function(pontuacoes){
+	Pontuacao.findAll({order: [['userId', 'Asc']]}).then(function(pontuacoes){
 		res.render('pontuacao',{pontuacoes: pontuacoes});
 	})
 });
@@ -47,9 +66,9 @@ app.post("/add-pontuacao", function(req, res){
 });
 
 
-app.get('/del-pontuacao/:id', function(req, res){
+app.get('/del-pontuacao/:userId', function(req, res){
 	Pontuacao.destroy({
-		where: {'id' : req.params.id}
+		where: {'userId' : req.params.userId}
 	}).then(function(){
 		res.redirect('/pontuacao')
 		//res.send("Pontuacao excluída com sucesso!")
@@ -62,7 +81,7 @@ app.get('/del-pontuacao/:id', function(req, res){
 ///cadastro
 
 app.get("/cadastro", function(req,res){
-	Cadastro.findAll({order: [['id', 'Asc']]}).then(function(cadastros){
+	Cadastro.findAll({order: [['userId', 'Asc']]}).then(function(cadastros){
 		res.render('cadastro',{cadastros: cadastros});
 	})
 });
@@ -71,8 +90,13 @@ app.get("/cad-cadastro", function(req, res){
 	res.render("cad_cadastro");
 });
 
+app.get("/edit-cadastro/:userId", function(req, res){
+	res.render("edit_cadastro");
+});
+
 app.post("/add-cadastro", function(req, res){
 	Cadastro.create({
+		userId:req.params.userId,
 		nome: req.body.nome,
 		email: req.body.email,
 		fone: req.body.fone,
@@ -86,9 +110,28 @@ app.post("/add-cadastro", function(req, res){
 	})
 });
 
-app.get('/del-cadastro/:id', function(req, res){
+
+
+app.patch('/put-cadastro', function(req, res){
+	Cadastro.update({
+		nome: req.body.nome,
+		email: req.body.email,
+		fone: req.body.fone,
+		senha:req.body.senha,
+	},
+	{
+		where:{'userId' : req.params.id}
+	}).then(function(){
+		res.redirect('/cadastro')
+		//res.send("Cadastro atualziado com sucesso!")
+	}).catch(function(erro){
+		res.send("Erro ao realizar a atualização do Cadastro"+erro)
+	})
+});
+
+app.get('/del-cadastro/:userId', function(req, res){
 	Cadastro.destroy({
-		where: {'id' : req.params.id}
+		where: {'userId' : req.params.userId}
 	}).then(function(){
 		res.redirect('/cadastro')
 		//res.send("Pagamento excluído com sucesso!")
@@ -97,6 +140,7 @@ app.get('/del-cadastro/:id', function(req, res){
 	})
 
 });
+
 
 //modelo -------------
 
@@ -119,6 +163,8 @@ app.post("/add-pagamento", function(req, res){
 		res.send("Erro ao realizar o cadastramento do pagamento!" + erro)
 	})
 });
+
+
 app.get('/del-pagamento/:id', function(req, res){
 	Pagamento.destroy({
 		where: {'id': req.params.id}

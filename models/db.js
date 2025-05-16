@@ -10,6 +10,8 @@ sequelize.authenticate().then(function () {
 }).catch(function (err) {
     console.log('Erro ao realizar com a conexão com DB: ' + err);
 });
+
+
 module.exports={
 	Sequelize: Sequelize,
 	sequelize: sequelize

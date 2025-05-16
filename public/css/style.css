@@ -5,48 +5,90 @@
 }
 
 body{
-    background-color:rgb(245, 133, 133);
+    background-color:rgb(174, 68, 68);
     font-family:Arial, Helvetica, sans-serif;
     min-height:100vh;
     gap:60px;
+}
+
+
+input{
+
+    border-radius:8px;
+    border-color:white;
+    text-align:center;
     
+}
+
+label{
+    color:rgb(133, 129, 255);
+    font-weight:bold;
+    text-align:center;
+}
+
+nav{
+    width:100%;
+    background-color:rgb(255, 255, 255);
+}
+
+.navbar-nav{
+    gap:15px;
+}
+
+.navBar-nav:hover{
+    color:rgb(174, 68, 68);
+}
+
+.container-fluid{
+    font-size:25px;
+    display:flex;
+    align-content:center;
+    width:50%;
 }
 
 h1{
     padding:15px;
+    color:rgb(255, 191, 191);
+    font-weight:bold;
+    display:flex;
+    justify-content:center;
 }
 
-.button{
+button{
     border-radius:10px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding:5px;
-    background-color: azure;
-
+    padding:20px;
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction:column;
 }
+
 
 .form-cadastro{
 
     font-family: sans-serif;
     font-size:20px;
+    background-color:white;
+    border-radius:8px;
+    display:flex;
+    flex-direction:column;
+    justify-self:center;
+    width:30%;
     padding:15px;
     margin:20px;
-    max-width:30%;
-    max-height:30%;
-    gap:10px;
+
 }
 
 .container{
 
     font-family: sans-serif;
     font-size:20px;
-    padding:15px;
-    margin:20px;
-    border:6px;
     border-radius:8px;
-    border-color:black;
-    max-width:30%;
-    max-height:30%;
     background-color: rgb(255, 255, 255);
-    display:grid;
-    gap:20px;
+    display:flex;
+    flex-wrap:wrap;
+    flex-flow:row;
+    padding:20px;
+    justify-content:space-between;
 }
+
