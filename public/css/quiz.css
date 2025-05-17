@@ -42,15 +42,9 @@ ul li{
 
 
 #botao-resultado{
-    background-color:rgb(255, 255, 255);
-    border:2px;
-    border-color:black;
-    border-radius:8px;
-    padding:20px;
-    cursor: pointer;
     font-size:20px;
-    width:50%;
-    align-items:center;
+    display:flex;
+    justify-self:center;
 }
 
 
@@ -69,7 +63,6 @@ ul li{
 .botao-resposta{
     background-color:rgb(255, 255, 255);
     border:2px;
-    border-color:black;
     border-radius:8px;
     padding:15px;
     cursor: pointer;
