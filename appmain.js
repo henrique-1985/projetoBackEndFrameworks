@@ -24,25 +24,12 @@ app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname+'/public')));
 
 
-//login
+//artigo
 
-
-
-app.post("/login-valid",function(req,res){
-	for (let i=0; i<contas.length;i++){
-		if ((nomeLog===contas[i].name) && (senhaLog===contas[i].senha)){				loginAtual=contas[i].userId,
-				res.render("cad_pontuacao");
-		}else{
-			alert("Usuário ou senha incorretos"+erro);
-				res.render("login");
-		}
-	};
+app.get("/artigos", function(req,res){
+	res.render("artigos");
 });
 
-
-app.get("/login",function(req,res){
-	res.render("login");
-});
 
 
 //home
