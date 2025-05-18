@@ -1,19 +1,19 @@
 const perguntas = [ //Array que guarda cada grupo de pergunta e suas resposta.
     { //Pergunta 1
-        pergunta: "O céu é Azul.",
+        pergunta: "O Feminismo é o movimento que considera a Mulher um gênero superior.",
         respostas:["Verdadeiro", "Falso"],
-        correta:"Verdadeiro"
+        correta:"Falso"
 
     },
 
     { //Pergunta 2
-        pergunta: "O céu é Verde.",
+        pergunta: "Identidade de Gênero é a mesma coisa que Orientação Sexual.",
         respostas:["Verdadeiro", "Falso"],
         correta:"Falso"
 
     },
     { //Pergunta 3
-        pergunta: "O céu é Vermelho.",
+        pergunta: "Em briga de Marido e Mulher, niguém mete a colher.",
         respostas:["Verdadeiro", "Falso"],
         correta:"Falso"
 
