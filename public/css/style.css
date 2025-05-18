@@ -32,20 +32,35 @@ label{
 
 /*CSS Navbar*/
 
-nav{
-    width:100%;
+.navbar{
+    width: 100%;
     background-color: rgba(255, 255, 255, 0.8);
     font-family: 'Quicksand', sans-serif;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.container-fluid{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    width: auto;
 }
 
 .navbar-nav{
-    gap:15px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.navbar-brand img{
+    width: 5rem;
 }
 
 .nav-link:hover{
-    color:#93d0ff;
+    color: #93d0ff;
 }
-
 
 /*CSS Artigos*/
 
@@ -53,7 +68,7 @@ nav{
     display: grid;
     place-items: center;
     margin-inline: 1.5rem;
-    padding-block: 5rem;
+    padding-block: 3.5rem;
 }
 
 .card_bloco {
@@ -86,6 +101,12 @@ nav{
     right: auto;
     margin-inline: 0;
     box-shadow: rgb(0, 0, 0, 0.1) 2px 2px 2px 2px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card_info:hover{
+    transform: translateY(-5px);
+    box-shadow: rgb(0, 0, 0, 0.2) 2px 2px 2px 2px;
 }
 
 .card_desc{
@@ -121,12 +142,6 @@ nav{
     text-align:center;
     box-shadow: rgba(81, 64, 80, 0.441) 2px 5px 2px 2px;
 
-}
-.container-fluid{
-    font-size:25px;
-    display:flex;
-    align-content:center;
-    width:50%;
 }
 
 h1, h4{
@@ -186,18 +201,46 @@ button{
 
 /*valores de cadastro e pontuações a ser exibidos*/
 .valores{
-
-    font-family: sans-serif;
+    font-family: Montserrat, sans-serif;
     font-size:20px;
     border-radius:10px;
-    background-color: rgb(255, 255, 255);
     display:flex;
     flex-flow:wrap;
     justify-content:flex-start;
-    column-gap:10px;
+    column-gap:20px;
+    row-gap:20px;
     padding:20px;
-    box-shadow: rgba(81, 64, 80, 0.441) 2px 5px 2px 2px;
     margin:20px;
+}
+
+.valores .cadastro_individual{
+    width: calc(33.333% - 20px);
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.347) 0px 0px 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.valores .cadastro_individual:hover{
+    transform: translateY(-5px);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 20px;
+}
+
+.btn-outline-primary, .btn-outline-danger {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.btn-outline-primary{
+    color: #7dbded;
+    border-color: #93d0ff;
+}
+
+.btn-outline-primary:hover {
+    background-color: #93d0ff;
+    border-color: #93d0ff;
+    color: rgb(98, 78, 97);
 }
 
 /*CSS Footer*/

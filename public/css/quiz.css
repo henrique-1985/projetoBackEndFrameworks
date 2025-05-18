@@ -7,7 +7,7 @@
 
 body{
     background-color:rgb(125, 0, 96);
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Montserrat, Helvetica, sans-serif;
     min-height:100vh;
 }
 
@@ -22,14 +22,20 @@ body{
     justify-self:center;
     padding:15px;
     margin:20px;
+    box-shadow: rgba(0, 0, 0, 0.347) 0px 0px 10px;
 }
 
+.pergunta-container ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .pergunta-container h2{
     margin: 20px;
     text-align:center;
     font-size:40px;
-    
+    color:rgb(98, 78, 97);
 }
 
 ul {
@@ -62,32 +68,45 @@ ul li{
 
 .botao-resposta{
     background-color:rgb(255, 255, 255);
+    color: rgb(98, 78, 97);
     border:2px;
     border-radius:8px;
     padding:15px;
     cursor: pointer;
     font-size:25px;
+    font-family:Montserrat, Helvetica, sans-serif;
     margin:10px;
-    width:100%;
-    box-shadow: rgb(235, 201, 218) 2px 5px 2px 2px;
-    
+    width: 200px;
+    box-shadow: rgba(0, 0, 0, 0.347) 2px 5px 2px 2px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .botao-resposta:hover{
-    background-color:rgb(251, 128, 159);
-    color:rgb(125, 0, 61);
-    box-shadow: rgb(235, 107, 143) 2px 5px 2px 2px;
+    background-color:#ffb3d5;
+    color:rgb(226, 97, 134);
+    box-shadow: rgb(255, 150, 180) 2px 5px 2px 2px;
+    transform: translateY(-5px);
 }
 
 .botao{
-    color:white;
-    background-color:black;
+    color:rgb(98, 78, 97);
+    background-color:#93d0ff;
     display:block;
     width:100%;
     border:none;
     text-align:center;
     padding:10px;
     font-size: 20px;
+    font-family:Montserrat, Helvetica, sans-serif;
+    box-shadow: rgba(0, 0, 0, 0.347) 2px 5px 2px 2px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.botao:hover{
+    background-color:#bdeaff;
+    border-color: #bdeaff;
+    box-shadow: rgba(51, 96, 133, 0.347) 2px 5px 2px 2px;
+    transform: translateY(-5px);
 }
 
 #resultado h2{
@@ -95,6 +114,7 @@ ul li{
     display:flex;
     flex-direction:column;
     font-weight:bold;
+    color: rgb(98, 78, 97);
 }
 
 #pontuacao{
@@ -102,8 +122,8 @@ ul li{
     display:flex;
     align-self:center;
     margin:10px;
-    color:pink;
+    color:rgb(98, 78, 97);
     font-weight:bold;
-    background-color:rgb(125, 0, 96);
+    background-color: #93d0ff;
     width:10%;
 }
