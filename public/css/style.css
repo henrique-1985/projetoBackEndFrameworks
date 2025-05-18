@@ -46,10 +46,6 @@ nav{
     color:#93d0ff;
 }
 
-h3{
-    font-weight:bold;
-    font-size:25px;
-}
 
 /*CSS Artigos*/
 
@@ -112,21 +108,20 @@ h3{
     color: #91c6ee;
 }
 
-/*.artigo{
-    font-family: sans-serif;
+.home-info{
+    font-family: Montserrat, "sans-serif";
     font-size:20px;
     background-color:white;
     border-radius:10px;
     display:flex;
-    flex-direction:column;
     justify-self:center;
     width:60%;
-    padding:20px;
-    margin:30px;
+    padding:30px;
+    margin:35px;
     text-align:center;
-    box-shadow: rgb(97, 25, 61) 2px 5px 2px 2px;
+    box-shadow: rgba(81, 64, 80, 0.441) 2px 5px 2px 2px;
 
-}*/
+}
 .container-fluid{
     font-size:25px;
     display:flex;
@@ -143,6 +138,15 @@ h1, h4{
     text-shadow: 2px 2px 4px rgb(0, 0, 0, 0.3);
 }
 
+h3{
+    padding:10px;
+    font-size:25px;
+    margin:5px;
+    width:55%;
+    display:flex;
+    align-self:center;
+}
+
 button{
     border-radius:10px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -150,7 +154,7 @@ button{
 }
 
 
-.form-cadastro, .form-login{
+.form-cadastro{
 
     font-family: Montserrat, sans-serif;
     font-size:20px;
@@ -160,9 +164,9 @@ button{
     flex-direction:column;
     justify-self:center;
     width:30%;
-    padding:15px;
+    padding:25px;
     margin:20px;
-    box-shadow: rgb(0, 0, 0, 0.1) 2px 2px 2px 2px;
+    box-shadow: rgba(0, 0, 0, 0.347) 2px 2px 2px 2px;
 
 }
 
@@ -179,6 +183,7 @@ button{
     color: rgb(98, 78, 97);
 }
 
+/*valores de cadastro e pontuações a ser exibidos*/
 .valores{
 
     font-family: sans-serif;
@@ -190,8 +195,7 @@ button{
     justify-content:flex-start;
     column-gap:10px;
     padding:20px;
-    font-weight:bold;
-    box-shadow: rgb(97, 25, 61) 2px 5px 2px 2px;
+    box-shadow: rgba(81, 64, 80, 0.441) 2px 5px 2px 2px;
     margin:20px;
 }
 
