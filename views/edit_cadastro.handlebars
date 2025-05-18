@@ -1,13 +1,17 @@
 <h1> Alterar Cadastro </h1>
 <form class="form-cadastro" action="/put-cadastro/{{userId}}" method="POST">
+
 	<label for="nome">Nome</label>
-	<input type="text" name="nome" id="nome" value="{{nome}}" placeholder="Altere o seu nome aqui" required>  <br><br>
+	<input type="text" name="nome" id="nome" value="{{nome}}" placeholder="Altere seu nome aqui" required>  <br>
+
     <label for="email">E-mail</label>
-	<input type="email" name="email" id="email" value="{{email}}" placeholder="Altere o seu e-mail aqui" required>  <br><br>
+	<input type="email" name="email" id="email" value="{{email}}" placeholder="Altere seu e-mail aqui" title="Por favor digite o seu e-mail no formato convencional. Exemplo: exemplo@email.com" required>  <br>
+	
     <label for="telefone">Telefone</label>
-	<input type="tel" name="fone" id="telefone" value="{{fone}}" pattern="\d{10,11}" placeholder="Altere o seu telefone aqui" required>  <br><br>
+	<input type="tel" name="fone" id="telefone" value="{{fone}}" pattern="\d{10,11}" placeholder="Altere seu telefone aqui" title="Por favor digite o telefone com apenas números, incluindo o DDD do seu estado. Exemplo: 99XXXXXXXXX" required>  <br>
+
 	<label for="senha">Senha</label>
-	<input type="password" name="senha" id="senha" value="{{senha}}" placeholder="Altere sua senha" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%&*_=+\-.]).{8,16}$" placeholder="Digite a sua senha aqui" required>  <br><br>
+	<input type="password" name="senha" id="senha" value="{{senha}}" placeholder="Altere sua senha aqui" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%&*_=+\-.]).{8,16}$" placeholder="Digite a sua senha aqui" title="A senha precisa ter de 8 a 16 caracteres, uma letra minúscula, uma letra maiúscula, um símbolo e um número" required>  <br>
 
 	<button type="submit" class="btn btn-outline-info">Alterar</button>
 </form>
