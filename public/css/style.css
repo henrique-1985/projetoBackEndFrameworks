@@ -154,7 +154,7 @@ button{
 }
 
 
-.form-cadastro{
+.form-cadastro, .form-login{
 
     font-family: Montserrat, sans-serif;
     font-size:20px;
@@ -176,6 +176,7 @@ button{
     align-self: center;
     color: #93d0ff;
     border-color: #93d0ff;
+    margin:10px;
 }
 
 .btn.btn-outline-info:hover {

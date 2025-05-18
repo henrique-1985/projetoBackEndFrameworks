@@ -9,6 +9,7 @@ const Pontuacao = db.sequelize.define('pontuacao',{
             key:'userId',
         },
     },
+
     ponto: {
         type:db.Sequelize.STRING
     },
