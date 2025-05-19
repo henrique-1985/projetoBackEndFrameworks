@@ -213,7 +213,7 @@ button{
     margin:20px;
 }
 
-.valores .cadastro_individual{
+.valores .cadastro_individual, .pont_individ{
     width: calc(33.333% - 20px);
     background-color: #f9f9f9;
     border-radius: 10px;

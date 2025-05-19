@@ -57,7 +57,7 @@ app.get("/quiz", function(req, res){
 app.post("/add-pontuacao", function(req, res){
 	Pontuacao.create({
 		userId:req.params.userId,
-		ponto: req.body.ponto,
+		pontuacao: req.body.pontuacao,
 	}).then(function(){
 		res.redirect('/pontuacao')
 		//res.send("cadastrado com sucesso")
@@ -66,10 +66,9 @@ app.post("/add-pontuacao", function(req, res){
 	})
 });
 
-
-app.get('/del-pontuacao/:userId', function(req, res){
+app.get('/del-pontuacao/:pontuacao', function(req, res){
 	Pontuacao.destroy({
-		where: {'userId' : req.params.userId}
+		where: {'pontuacao' : req.params.pontuacao}
 	}).then(function(){
 		res.redirect('/pontuacao')
 		//res.send("Pontuacao excluída com sucesso!")

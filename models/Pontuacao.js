@@ -10,7 +10,7 @@ const Pontuacao = db.sequelize.define('pontuacao',{
         },
     },
 
-    ponto: {
+    pontuacao: {
         type:db.Sequelize.STRING
     },
     

@@ -3,11 +3,12 @@
 <div class="container">
 	<div class="valores">
 		{{#each pontuacoes}}
+		<div class="pont_individ">
 			ID: {{dataValues.userId}}<br>
-			Pontuação: {{dataValues.ponto}}<br>
+			Pontuação: {{dataValues.pontuacao}}<br>
 			Cadastrado: {{#formatDate dataValues.createdAt}}{{/formatDate}}<br><br>
-			<a href="/del-pontuacao/{{dataValues.userId}}"><button class="btn btn-outline-danger">Apagar</button></a>
-			<hr>
+			<a href="/del-pontuacao/{{dataValues.pontuacao}}"><button class="btn btn-outline-danger">Apagar</button></a>
+		</div>
 		{{/each}}
 	</div>
 </div>
