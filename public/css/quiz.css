@@ -25,16 +25,10 @@ body{
     box-shadow: rgba(0, 0, 0, 0.347) 0px 0px 10px;
 }
 
-.pergunta-container ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .pergunta-container h2{
     margin: 20px;
     text-align:center;
-    font-size:40px;
+    font-size:25px;
     color:rgb(98, 78, 97);
 }
 
@@ -75,8 +69,8 @@ ul li{
     cursor: pointer;
     font-size:25px;
     font-family:Montserrat, Helvetica, sans-serif;
-    margin:10px;
-    width: 200px;
+    margin-bottom: 20px;
+    width: 100%;
     box-shadow: rgba(0, 0, 0, 0.347) 2px 5px 2px 2px;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
