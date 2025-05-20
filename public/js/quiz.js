@@ -1,6 +1,6 @@
 const perguntas = [ //Array que guarda cada grupo de pergunta e suas resposta.
     { //Pergunta 1
-        pergunta: "O Feminismo é o movimento que considera a Mulher um gênero superior.",
+        pergunta: "O Feminismo é o movimento que busca a SUPERIORIDADE da mulher em relaçãoa outros gêneros.",
         respostas:["Verdadeiro", "Falso"],
         correta:"Falso"
 
@@ -13,11 +13,55 @@ const perguntas = [ //Array que guarda cada grupo de pergunta e suas resposta.
 
     },
     { //Pergunta 3
-        pergunta: "Em briga de Marido e Mulher, niguém mete a colher.",
+        pergunta: A sigla LGBT+ inclui diversas identidades de gênero e orientações sexuais ALÉM de lésbicas, gays, bissexuais e transgêneros. respostas:["Verdadeiro", "Falso"],
+        correta:"Verdadeiro"
+
+    },
+    { //Pergunta 4
+        pergunta: "Pessoas transgênero ESCOLHERAM ser de um gênero diferente do seu gênero de nascimento.",
         respostas:["Verdadeiro", "Falso"],
         correta:"Falso"
 
     },
+    { //Pergunta 5
+        pergunta: "A violência de gênero é um problema privado que NÃO afeta a sociedade como um todo.",
+        respostas:["Verdadeiro", "Falso"],
+        correta:"Falso"
+
+    },
+    { //Pergunta 6
+        pergunta: "Crianças criadas por pais LGBT+ têm mais probabilidade de serem LGBT+ ou de ter problemas de desenvolvimento.",
+        respostas:["Verdadeiro", "Falso"],
+        correta:"Falso"
+
+    },
+    { //Pergunta 7
+        pergunta: "Pessoas assexuais não sentem atração sexual por ninguém, mas podem sentir atração romântica.",
+        respostas:["Verdadeiro", "Falso"],
+        correta:"Verdadeiro"
+
+    },
+    { //Pergunta 8
+        pergunta: "Em um relacionamento abusivo, a violência é sempre física.",
+        respostas:["Verdadeiro", "Falso"],
+        correta:"Falso"
+
+    },
+    { //Pergunta 9
+        pergunta: "A discriminação de gênero afeta a saúde mental de homens e mulheres de maneiras diferentes.",
+        respostas:["Verdadeiro", "Falso"],
+        correta:"Verdadeiro"
+
+    },
+    { //Pergunta 10
+        pergunta: O termo 'feminicídio' refere-se ao assassinato de qualquer mulher, independentemente do motivo.",
+        respostas:["Verdadeiro", "Falso"],
+        correta:"Falso"
+
+    },
+    
+
+
 ];
 
 let indicePerguntaAtual = 0; //Lenght
