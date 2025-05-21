@@ -37,7 +37,7 @@ const perguntas = [ //Array que guarda cada grupo de pergunta e suas resposta.
 
     },
     { //Pergunta 7
-        pergunta: "Pessoas assexuais não sentem atração sexual por ninguém, mas podem sentir atração romântica.",
+        pergunta: "Pessoas assexuais podem não sentir atração sexual por ninguém, mas podem sentir atração romântica.",
         respostas:["Verdadeiro", "Falso"],
         correta:"Verdadeiro"
 
