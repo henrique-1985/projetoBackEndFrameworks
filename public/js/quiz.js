@@ -13,7 +13,8 @@ const perguntas = [ //Array que guarda cada grupo de pergunta e suas resposta.
 
     },
     { //Pergunta 3
-        pergunta: A sigla LGBT+ inclui diversas identidades de gênero e orientações sexuais ALÉM de lésbicas, gays, bissexuais e transgêneros. respostas:["Verdadeiro", "Falso"],
+        pergunta: "A sigla LGBT+ inclui diversas identidades de gênero e orientações sexuais ALÉM de lésbicas, gays, bissexuais e transgêneros."   ,
+        respostas:["Verdadeiro", "Falso"],
         correta:"Verdadeiro"
 
     },
@@ -54,7 +55,7 @@ const perguntas = [ //Array que guarda cada grupo de pergunta e suas resposta.
 
     },
     { //Pergunta 10
-        pergunta: O termo 'feminicídio' refere-se ao assassinato de qualquer mulher, independentemente do motivo.",
+        pergunta: "O termo 'feminicídio' refere-se ao assassinato de qualquer mulher, independentemente do motivo.",
         respostas:["Verdadeiro", "Falso"],
         correta:"Falso"
 
